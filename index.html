@@ -1,0 +1,76 @@
+<script>
+    let playerScore = 0
+    let computerScore = 0
+    function computerPlay() {
+        let num
+        num = Math.floor(Math.random() * 3)
+        if (num == 0) {
+            return "rock"
+        } else if (num == 1) {
+            return "paper"
+        } else if (num == 2) {
+            return "scissors"
+        }
+    }
+    function playRound(player, computer) {
+        if (player == "rock") {
+            switch (computer) {
+                case "rock":
+                    console.log("Draw!" + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+                case "paper":
+                    computerScore++
+                    console.log("You lose! Paper beats Rock." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+                case "scissors":
+                    playerScore++
+                    console.log("You win! Rock beats Scissors." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+            }
+        } else if (player == "paper") {
+            switch (computer) {
+                case "rock":
+                    playerScore++
+                    console.log("You win! Paper beats Rock." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+                case "paper":
+                    console.log("Draw!" + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+                case "scissors":
+                    computerScore++
+                    console.log("You lose! Scissors beat Paper." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+            }
+        } else if (player == "scissors") {
+            switch (computer) {
+                case "rock":
+                    computerScore++
+                    console.log("You lose! Rock beats Scissors." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+                case "paper":
+                    playerScore++
+                    console.log("You win! Scissors beat Rock." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+                case "scissors":
+                    console.log("Draw!" + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
+                    break
+            }
+        }
+    }
+    function game() {
+        let playerSelection, computerSelection
+        for(i = 0; i < 5; i++) {
+            playerSelection = window.prompt("Rock, paper or scissors?")
+            computerSelection = computerPlay()
+            playRound(playerSelection, computerSelection)
+        }
+        if (playerScore == computerScore) {
+            console.log ("It's a draw! Your final score is " + playerScore + " and computer's final score is " + computerScore + ".")
+        } else if (playerScore > computerScore) {
+            console.log ("You won the game! Your final score is " + playerScore + " and computer's final score is " + computerScore + ".")
+        } else if (playerScore < computerScore) {
+            console.log ("You lose the game! Your final score is " + playerScore + " and computer's final score is " + computerScore + ".")
+        }
+    }
+    game();
+</script>
