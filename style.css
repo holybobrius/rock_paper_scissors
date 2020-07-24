@@ -1,0 +1,61 @@
+html {
+    background-color: #212121;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
+header {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 20px;
+}
+main {
+    margin-top: 70px;
+}
+.main-header {
+    text-align: center;
+    font-size: 35px
+}
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    align-items: center;
+}
+button {
+    background-color: #454545;
+    border-color: #454545;
+    border-style: hidden;
+    width: 250px;
+    height: 60px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 25px;
+}
+button:hover {
+    background-color: #545454;
+
+}
+footer { 
+    margin-top: 8px;
+}
+#results {
+    margin: 0px auto 0px auto;
+    width: 1200px;
+}
+#score { 
+    display: flex;
+    justify-content: space-evenly;
+}
+#player-score, #computer-score {
+    text-align: center;
+}
+.score-str {
+    font-size: 35px;
+}
+.score-int {
+    font-size: 80px;
+    margin-top: 0px;
+}
+#results { 
+    text-align: center;
+}

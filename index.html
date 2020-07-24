@@ -1,76 +1,37 @@
-<script>
-    let playerScore = 0
-    let computerScore = 0
-    function computerPlay() {
-        let num
-        num = Math.floor(Math.random() * 3)
-        if (num == 0) {
-            return "rock"
-        } else if (num == 1) {
-            return "paper"
-        } else if (num == 2) {
-            return "scissors"
-        }
-    }
-    function playRound(player, computer) {
-        if (player == "rock") {
-            switch (computer) {
-                case "rock":
-                    console.log("Draw!" + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-                case "paper":
-                    computerScore++
-                    console.log("You lose! Paper beats Rock." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-                case "scissors":
-                    playerScore++
-                    console.log("You win! Rock beats Scissors." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-            }
-        } else if (player == "paper") {
-            switch (computer) {
-                case "rock":
-                    playerScore++
-                    console.log("You win! Paper beats Rock." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-                case "paper":
-                    console.log("Draw!" + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-                case "scissors":
-                    computerScore++
-                    console.log("You lose! Scissors beat Paper." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-            }
-        } else if (player == "scissors") {
-            switch (computer) {
-                case "rock":
-                    computerScore++
-                    console.log("You lose! Rock beats Scissors." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-                case "paper":
-                    playerScore++
-                    console.log("You win! Scissors beat Rock." + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-                case "scissors":
-                    console.log("Draw!" + " Your score is " + playerScore + ". Computer's score is " + computerScore + ".")
-                    break
-            }
-        }
-    }
-    function game() {
-        let playerSelection, computerSelection
-        for(i = 0; i < 5; i++) {
-            playerSelection = window.prompt("Rock, paper or scissors?")
-            computerSelection = computerPlay()
-            playRound(playerSelection, computerSelection)
-        }
-        if (playerScore == computerScore) {
-            console.log ("It's a draw! Your final score is " + playerScore + " and computer's final score is " + computerScore + ".")
-        } else if (playerScore > computerScore) {
-            console.log ("You won the game! Your final score is " + playerScore + " and computer's final score is " + computerScore + ".")
-        } else if (playerScore < computerScore) {
-            console.log ("You lose the game! Your final score is " + playerScore + " and computer's final score is " + computerScore + ".")
-        }
-    }
-    game();
-</script>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href = "style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>Rock, Paper, Scissors</h1>
+        </header>
+        <main>
+            <h2 class = "main-header">Your Play:</h2>
+            <div id = "buttons">
+                <button id ="Rock">Rock</button>
+                <button id ="Paper">Paper</button>
+                <button id ="Scissors">Scissors</button>
+            </div>
+        </main>
+        <footer>
+            <h2 class="main-header">Results:</h2>
+            <div id="score">
+                <div id="player-score">
+                    <p class = "score-str" id = "player-score-str">YOU:</p>
+                    <p class = "score-int" id = "player-score-int"></p>
+                </div>
+                <div id="computer-score">
+                    <p class = "score-str" id = "computer-score-str">CPU:</p>
+                    <p class = "score-int" id = "computer-score-int"></p>
+                </div>
+            </div>
+            <div id="results">
+            </div>
+        </footer>
+    </body>
+    <script src = 'script.js'></script>
+</html>
